@@ -3,18 +3,18 @@
 /**
  * PHP Crunchbase API Library
  *
- * For more information refer to https://developer.crunchbase.com/docs
+ * For more information refer to http://data.crunchbase.com/v3/docs/
  * @author Juancho Rossi <juancho@juanchorossi.com>
  */
 class CrunchBase
 {
-    protected $base_url = 'http://api.crunchbase.com/v/2/';
+    protected $base_url = 'http://api.crunchbase.com/v/3/';
 
     // ==============================================================
 
     public function __construct($user_key, $format = 'json')
     {
-        $this->user_key = $user_key;
+        $this->user_key   = $user_key;
         $this->format     = $format;
     }
 
@@ -30,9 +30,7 @@ class CrunchBase
      */
     public function organization($permalink)
     {
-        $_query = array('permalink' => $permalink);
-
-        return $this->curl_execute($method = 'organization', $_query);
+        return $this->curl_execute($method = 'organizations/' . $permalink, array());
     }
 
     // ==============================================================
@@ -83,6 +81,12 @@ class CrunchBase
         return $this->curl_execute($method = 'organizations', $_query);
     }
 
+
+    public function current_team( $permalink )
+    {
+        return $this->curl_execute($method = 'organizations/' . $permalink . '/current_team', array());
+    }
+
     // ==============================================================
 
     /**
@@ -112,9 +116,7 @@ class CrunchBase
      */
     public function person($permalink)
     {
-        $_query = array('permalink' => $permalink);
-
-        return $this->curl_execute($method = 'person', $_query);
+        return $this->curl_execute($method = 'people/' . $permalink, array());
     }
 
     // ==============================================================

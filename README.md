@@ -1,7 +1,7 @@
 Crunchbase-API-PHP-Library
 ==========================
 
-- Please refer to the following link for more information: https://developer.crunchbase.com/docs
+- Please refer to the following link for more information: http://data.crunchbase.com/v3/docs/
 
 **Usage**
 
@@ -16,4 +16,3 @@ Crunchbase-API-PHP-Library
 	{
 		echo "<p><a href=\"".$organizations['metadata']['www_path_prefix'].$organization['path']."\">".$organization['name']."</a></p>";
 	}
-
