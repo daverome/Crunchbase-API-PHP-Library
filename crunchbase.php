@@ -284,11 +284,11 @@ class CrunchBase
 
         if ($http_status !== 200)
         {
-            echo "HTTP call failed with error {$http_status}.";
+            error_log( "HTTP call failed with error {$http_status}." );
         }
         elseif ($response === FALSE)
         {
-            echo "HTTP call failed empty response.";
+            error_log( "HTTP call failed empty response." );
         }
 
         return ($this->format === 'json') ? $response : json_decode($response, TRUE);
